@@ -2,6 +2,10 @@
 
 ## Description
 It is very much evident what Deep Learning can achieve in the Medical field, hence in view of the current situation of pandemic and for education purpose, I have created a Web Application that could detect Covid-19 in X-ray images.
+Obtained following performance metrics:
+   1) Accuracy: 98%
+   2) Sensitivity: 95%
+   3) Specificity: 100%
 
 ## Installation
 pip install the following libraries:
@@ -21,6 +25,8 @@ Above datasets can be found in this repository in the Covid-19_model/covid-chest
 
 ## Usage
 covid_positive_dataset.py and kaggle_normal.py files are used to extract images from the above mentioned datasets folder and copy it in Covid-19_model/dataset folder. 
+
+covid_model.py file contains the actual code of model creation and covid_initial.h5 contain the saved model.
 
 For running the Web application, run the predict_app.py (Flask application) file in the flask_app folder.
 
