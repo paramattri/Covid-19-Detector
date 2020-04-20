@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Covid-19 Prediction</title>
+    <style>
+      *{
+        font-size:30px;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="image-selector" type="file">
+    <button id="predict-button">Predict</button>
+    <p style="font-weight:bold">Predictions</p>
+    <p>Covid: <span id="covid-prediction"></span></p>
+    <p>Normal: <span id="normal-prediction"></span></p>
+    <img id="selected-image" src="">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script>
+      let base64Image;
+      $("#image-selector").change(function(){
+        let reader=new FileReader();
+        reader.onload= function(e){
+          let dataURL=reader.result;
+          $("#selected-image").attr("src",dataURL);
+          base64Image=dataURL.replace("data:image/jpeg;base64,","");
+          console.log(base64Image);
+        }
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+        $("#covid-prediction").text("")
+        $("#normal-prediction").text("")
+      });
+
+      $("#predict-button").click(function(){
+        let message={
+          image:base64Image
+        }
+        console.log(message);
+        $.post("http://localhost:5000/predict", JSON.stringify(message), function(response){
+          $("#covid-prediction").text(response.prediction.covid.toFixed(6));
+          $("#normal-prediction").text(response.prediction.normal.toFixed(6));
+          console.log(response);
+        });
+      });
+
+    </script>
+  </body>
+</html>
