@@ -24,5 +24,5 @@ covid_positive_dataset.py and kaggle_normal.py files are used to extract images 
 
 For running the Web application, run the predict_app.py (Flask application) file in the flask_app folder.
 
-![GIF of Covid-19 Web App](https://drive.google.com/open?id=1vJOvhjVAO2chRRNsgBnzrUqzAK8fqqDU)  ![GIF of Normal Web App](https://drive.google.com/open?id=1ltH-eof4RJ6YDXjtEVq33E_2lI-F6AE8)
+![Covid_19_GIF](https://user-images.githubusercontent.com/60289706/79780034-f04a8e00-8358-11ea-95da-452245803204.gif) ![GIF of Normal Web App](https://drive.google.com/open?id=1ltH-eof4RJ6YDXjtEVq33E_2lI-F6AE8)
 
